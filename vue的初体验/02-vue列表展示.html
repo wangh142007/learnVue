@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <div id="app">
+        <ul>
+            <li v-for="item in movies">{{item}}</li>
+        </ul>
+    </div>
+    <body>
+        <script src="../js/vue.js"></script>
+        
+        <script>
+            //页面添加数据app.movies.push('变形金刚')
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    message:'你好',
+                    movies:['海贼王','哈利波特','大话西游']
+                }
+            })
+        </script>
+    </body>
+</html>
+
