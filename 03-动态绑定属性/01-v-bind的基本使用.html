@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <div id="app">
+        <!-- 错误语法：这里不能使用mustache语法 -->
+        <!-- <img src="{{imgURL}}" alt=""> -->
+        <img v-bind:src="imgURL" alt="">
+        <a v-bind:href="aHref">百度</a>
+
+        <!-- 语法糖的写法 -->
+        <img :src="imgURL" alt="">
+        <a :href="aHref">百度</a>
+    </div>
+    <body>
+        <script src="../js/vue.js"></script>
+        
+        <script>
+          
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    imgURL:'https://img10.360buyimg.com/babel/s200x200_jfs/t1/124766/26/6018/135991/5efaff43E6a88bd1d/852df1a795ef7470.jpg',
+                    aHref:'http://www.baidu.com'
+                }
+            })
+
+        </script>
+    </body>
+
+</html>
