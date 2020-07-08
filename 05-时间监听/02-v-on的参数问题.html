@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <div id="app">
+        <!-- 时间调用方法没有参数 -->
+        <button @click="btnClick">按钮1</button>
+        <button @click="btnClick()">按钮1</button>
+
+        <!-- 在时间定义，写函数时省略了小括号，但是方法本身是需要一个参数的,
+        这个时候vue会默认将浏览器生成的event时间对象作为参数传入方法 -->
+        <!-- <button @click="btn2Click(123)" >按钮2</button> -->
+        <!-- <button @click="btn2Click()" >按钮2</button> -->
+        <button @click="btn2Click">按钮2</button>
+        
+        <!--方法定义时，我们需要event对象，同事又需要其他参数  -->
+        <button @click="btn3Click($event,123)" >按钮3</button>
+    </div>
+    <body>
+        <script src="../js/vue.js"></script>
+        
+        <script>
+          
+            const app = new Vue({
+                el:'#app',
+                data:{
+                },
+                methods:{
+                    btnClick(){
+                        console.log("btnClick")
+                    },
+                    btn2Click(event){
+                        console.log('----------',event)
+                    },
+                    btn3Click(event,abc){
+                        console.log('----------',event,abc)
+                    }
+                }
+            })
+
+        </script>
+    </body>
+
+</html>
