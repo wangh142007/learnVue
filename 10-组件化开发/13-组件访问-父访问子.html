@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <div id="app">
+        <cpn></cpn>
+        <cpn ref = "aaa"></cpn>
+        <cpn></cpn>
+        <button @click="btnClick">点击</button>
+    </div>
+    
+    <body>
+        
+        
+        <template id="cpn">
+            <div>
+                我是子组件
+            </div>
+        </template>
+
+        <script src="../js/vue.js"></script>
+        
+        <script>
+          
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    message: '你好'
+                },
+                methods:{
+                    btnClick() {
+                        // 1. $children
+                        // console.log(this.$children); 
+                        // this.$children[0].showMessage();
+
+                        // for(let c of this.$children){
+                        //     console.log(c.name);
+                        //     c.showMessage()
+                        // }
+
+                        // 2.$refs
+                        console.log(this.$refs.aaa.name)
+                    }
+                },
+                 
+                components: {
+                    cpn: {
+                        template: '#cpn',
+                        methods:{
+                            showMessage() {
+                                console.log('showMessage')
+                            }
+                        },
+                        data() {
+                            return {
+                                name: "我是子组件的name"
+                            }
+                        }
+                    }
+                }
+            })
+
+        </script>
+    </body>
+
+</html>
