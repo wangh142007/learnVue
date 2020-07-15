@@ -1,12 +1,12 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath: 'dist/'
-    },
+        publicPath: 'dist/'},
     module: {
         rules: [
             { 
@@ -50,8 +50,20 @@ module.exports = {
                     presets: ['es2015']
                   }
                 }
+            },
+            {
+                test: /\.vue$/,
+                use:['vue-loader']
+                    
             }
         ]
-      }
+    },
+    resolve: {
+        //alias: 别名
+        alias: {
+            'vue$':'vue/dist/vue.esm.js'
+        }
+    },
+    plugins: [new webpack.BannerPlugin('最终版权归wh所有')]
     
 }

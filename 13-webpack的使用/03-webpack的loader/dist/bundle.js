@@ -442,36 +442,40 @@ function toComment(sourceMap) {
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const {add ,mul } = __webpack_require__(3);
+"use strict";
 
-console.log(add(20,30));
-console.log(mul(20,30));
+
+var _require = __webpack_require__(3),
+    add = _require.add,
+    mul = _require.mul;
+
+console.log(add(20, 30));
+console.log(mul(20, 30));
 
 __webpack_require__(4);
-
 
 __webpack_require__(8);
 document.writeln('<h2>ni hao a </h2>');
 
-
-
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function add(num1, num2){
-    return num1+ num2
+"use strict";
+
+
+function add(num1, num2) {
+    return num1 + num2;
 }
 
-
-function mul(num1, num2){
-    return num1 * num2
+function mul(num1, num2) {
+    return num1 * num2;
 }
 
 module.exports = {
-    add,
-    mul
-}
+    add: add,
+    mul: mul
+};
 
 /***/ }),
 /* 4 */
