@@ -7,7 +7,11 @@
 
 <script>
 export default {
-    name:"about"
+    name:"About",
+    created() {
+        console.log('About created');
+    }
+    
 }
 </script>
 

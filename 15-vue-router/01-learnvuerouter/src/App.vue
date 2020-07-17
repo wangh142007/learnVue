@@ -13,9 +13,17 @@
 
     <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
-    <router-link :to="'/user/'+ userId">用户</router-link>
 
-    <router-view/>
+    <!-- <router-link :to="'/user/'+ userId">用户</router-link> -->
+    <button @click="userClick">用户</button>
+
+    <!-- <router-link to="/profile">关于</router-link> -->
+    <!-- <router-link :to="{path: '/profile' , query: {name : 'wh' ,age: 18}}">档案</router-link> -->
+    <button @click="profileClick">档案</button> 
+    
+    <keep-alive exclude="Profile,User">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
@@ -27,8 +35,8 @@ export default {
           userId: 'zhangsan',
           imageURL: 'http://www.baidu.com/logo.png'
       }
-  }
-  // methods: {
+  },
+  methods: {
   //   homeClick(){
   //     //通过代码的方法修改路由 vue-router
   //     //push => pushState
@@ -39,7 +47,20 @@ export default {
   //     // this.$router.push('/about')
   //     this.$router.replace('/about')
   //   }
-  // }
+      profileClick(){
+         this.$router.push({
+           path: '/profile',
+           query: {
+             name: 'kobe',
+             age: 22
+           }
+         })
+      },
+      userClick(){
+        this.$router.push('/user/' + this.userId)
+      }
+  }
+  
 }
 </script>
 
